@@ -10,4 +10,8 @@ describe("coinCounter", () => {
     expect(coinCounter(-2)).toEqual("Invalid input!");
   });
 
+  test("should identify a whole number of quarters", () => {
+    expect(coinCounter(0.25)).toEqual({ "quarters": 1 });
+  });
+
 });
