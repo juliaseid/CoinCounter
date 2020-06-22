@@ -8,8 +8,13 @@ export const clearCounter = () => {
   delete coinDict["pennies"];
 }
 
+// export const outerCoinCounter = (amount) => {
+//   const coinDict = {
+//   }
+
 export const coinCounter = (amount) => {
   console.log(coinDict);
+
 
   const amountHundred = parseFloat(amount) * 100;
   console.log(amountHundred);
@@ -47,22 +52,23 @@ export const coinCounter = (amount) => {
   }
 }
 
-// const userAmount;
-// function coinCounter(coinValue) {
-//   return userAmount / coinValue;
+
+// function coinCounter(coinValue, amount) {
+//   return amount / coinValue;
 // }
 
-// const quarterCounter = coinCounter(25);
-// const dimeCounter = coinCounter(10);
-// const nickelCounter = coinCounter(5);
-// const pennyCounter = coinCounter(1);
+// const quarterCounter = coinCounter(25, amount);
+// const dimeCounter = coinCounter(10, amount);
+// const nickelCounter = coinCounter(5, amount);
+// const pennyCounter = coinCounter(1, amount);
 
 // function getChange(userAmount) {
-//   return quarterCounter {
-//     return dimeCounter {
-//       return nickelCounter {
-//         return pennyCounter{
-//           return "You would get ${quarterCounter} quarters, ${dimeCounter} dimes, ${nickelCounter} nickels, and ${pennyCounter} pennies.";
+//   return quarterCounter = (userAmount) => {
+//     userAmount - quarterCounter;
+//     return dimeCounter => {
+//       return nickelCounter => {
+//         return pennyCounter => {
+//           return `You would get ${quarterCounter} quarters, ${dimeCounter} dimes, ${nickelCounter} nickels, and ${pennyCounter} pennies.`;
 //         }
 //       }
 //     }
