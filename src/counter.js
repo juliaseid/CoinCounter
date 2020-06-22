@@ -1,6 +1,13 @@
 const coinDict = {
 }
 
+export const clearCounter = () => {
+  delete coinDict["quarters"];
+  delete coinDict["dimes"];
+  delete coinDict["nickels"];
+  delete coinDict["pennies"];
+}
+
 export const coinCounter = (amount) => {
   console.log(coinDict);
 
@@ -10,24 +17,23 @@ export const coinCounter = (amount) => {
     return "Invalid input!";
   }
 
-
   if (amountHundred === 0) {
     return coinDict;
   } else {
-    if (amountHundred % 25 >= 0) {
+    if (amountHundred >= 25 && amountHundred % 25 >= 0) {
       const quarterTotal = Math.floor(amountHundred / 25);
       const newTotal = amountHundred - quarterTotal * 25;
       coinDict["quarters"] = quarterTotal;
       return coinCounter(newTotal);
-    } else if (amountHundred % 10 >= 0) {
+    } else if (amountHundred >= 10 && amountHundred % 10 >= 0) {
       const dimeTotal = Math.floor(amountHundred / 10);
       const newTotal = amountHundred - dimeTotal * 10;
       coinDict["dimes"] = dimeTotal;
       return coinCounter(newTotal);
-    } else if (amountHundred % 5 >= 0) {
+    } else if (amountHundred >= 5 && amountHundred % 5 >= 0) {
       const nickelTotal = Math.floor(amountHundred / 5);
       const newTotal = amountHundred - nickelTotal * 5;
-      coinDict["nickels"] = nickelsTotal;
+      coinDict["nickels"] = nickelTotal;
       return coinCounter(newTotal);
       // } else if (amountHundred === 0) {
       //   coinDict["pennies"] = null;

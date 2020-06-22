@@ -1,6 +1,14 @@
 import { coinCounter } from "./../src/counter.js";
+import { clearCounter } from "./../src/counter.js";
 
 describe("coinCounter", () => {
+
+  // const coinDictTemp;
+
+  beforeEach(() => {
+    clearCounter();
+  })
+
 
   test("should identify that NaN values are invalid", () => {
     expect(coinCounter("abc")).toEqual("Invalid input!");
@@ -12,6 +20,18 @@ describe("coinCounter", () => {
 
   test("should identify a whole number of quarters", () => {
     expect(coinCounter(0.25)).toEqual({ "quarters": 1 });
+  });
+
+  test("should identify a whole number of dimes", () => {
+    expect(coinCounter(0.20)).toEqual({ "dimes": 2 });
+  });
+
+  test("should identify a whole number of nickels", () => {
+    expect(coinCounter(0.05)).toEqual({ "nickels": 1 });
+  });
+
+  test("should identify a whole number of pennies", () => {
+    expect(coinCounter(0.04)).toEqual({ "pennies": 4 });
   });
 
 });
