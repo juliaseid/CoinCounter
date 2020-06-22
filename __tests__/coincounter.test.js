@@ -34,4 +34,8 @@ describe("coinCounter", () => {
     expect(coinCounter(0.04)).toEqual({ "pennies": 4 });
   });
 
+  test("should identify a mixture of quarters, dimes, nickels, and pennies", () => {
+    expect(coinCounter(0.99)).toEqual({ "quarters": 3, "dimes": 2, "pennies": 4 })
+  })
+
 });
