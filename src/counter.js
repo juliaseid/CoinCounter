@@ -1,22 +1,14 @@
-const coinDict = {
-}
-
-export const clearCounter = () => {
-  delete coinDict["quarters"];
-  delete coinDict["dimes"];
-  delete coinDict["nickels"];
-  delete coinDict["pennies"];
-}
-
-// export const outerCoinCounter = (amount) => {
-//   const coinDict = {
-//   }
-
-export const coinCounter = (amount) => {
+export const coinCounter = (amount, coinDictParam) => {
+  const coinDict = coinDictParam;
   console.log(coinDict);
 
-
   const amountHundred = parseFloat(amount) * 100;
+  // const countByCoin = (coinValue) => {
+  //   return (amount) => {
+  //     return Math.floor(amount / coinValue);
+  //   }
+  // }
+  // const quarterCounter = countByCoin(25);
   console.log(amountHundred);
   if (isNaN(amountHundred) || amountHundred < 0 || amountHundred % 1 != 0) {
     return "Invalid input!";
@@ -27,30 +19,30 @@ export const coinCounter = (amount) => {
   } else {
     if (amountHundred >= 25 && amountHundred % 25 >= 0) {
       const quarterTotal = Math.floor(amountHundred / 25);
+      // const quarterTotal = quarterCounter(amountHundred);
       const newTotal = (amountHundred - (quarterTotal * 25)) / 100;
       coinDict["quarters"] = quarterTotal;
-      return coinCounter(newTotal);
+      return coinCounter(newTotal, coinDict);
     } else if (amountHundred >= 10 && amountHundred % 10 >= 0) {
       const dimeTotal = Math.floor(amountHundred / 10);
       const newTotal = (amountHundred - (dimeTotal * 10)) / 100;
       coinDict["dimes"] = dimeTotal;
-      return coinCounter(newTotal);
+      return coinCounter(newTotal, coinDict);
     } else if (amountHundred >= 5 && amountHundred % 5 >= 0) {
       const nickelTotal = Math.floor(amountHundred / 5);
       const newTotal = (amountHundred - (nickelTotal * 5)) / 100;
       coinDict["nickels"] = nickelTotal;
-      return coinCounter(newTotal);
-      // } else if (amountHundred === 0) {
-      //   coinDict["pennies"] = null;
+      return coinCounter(newTotal, coinDict);
     } else if (amountHundred >= 1) {
       const pennyTotal = amountHundred;
       const newTotal = amountHundred - pennyTotal;
       coinDict["pennies"] = pennyTotal;
-      return coinCounter(newTotal);
-      // return `You would get ${coinDict["quarters"]} quarters, ${coinDict["dimes"]} dimes, ${coinDict["nickels"]} nickels, and ${coinDict["pennies"]} pennies.`;
+      return coinCounter(newTotal, coinDict);
     }
   }
 }
+
+// const quarterTotal = Math.floor(amountHundred / 25);
 
 
 // function coinCounter(coinValue, amount) {
@@ -77,78 +69,5 @@ export const coinCounter = (amount) => {
 
 
 // const moneyShrinker
-
-
-
-
-// const recurseReverse = (string) => {
-//   if (string === "") {
-//     return "";
-//   } else {
-//     return recurseReverse(string.substring(1)) + string[0];
-//   }
-// }
-
-// export const coinCounter = (amount, counter) => {
-//   const coinValues = [0.25, 0.1, 0.05, 0.01];
-//   const coinNames = ["quarters", "dimes", "nickels", "pennies"];
-//   let coinIndex = counter; //refactor
-//   //decimal places check?
-//   if (isNaN(amount) || amount < 0) {
-//     return "Invalid input!";
-//   }
-//   else {
-//     function calcPennies() {
-//       return calcNickels() {
-//         return calcDimes() {
-//           return calcQuarters(amount);
-//         }
-//       }
-//     }
-//   }
-// }
-
-// const eachCoin = (coinDecimal) => {
-//   return (remainingValue) => {
-//     return (Math.floor(remainingValue / coinDecimal));
-//   }
-// }
-
-// const calcQuarters = eachCoin(0.25);
-// const calcDimes = eachCoin(0.1);
-// const calcNickels = eachCoin(0.05);
-// const calcPennies = eachCoin(0.01);
-
-// function getChange(userAmount) => {
-//   return function (quarters) {
-//     return function (dimes) {
-//       return
-//     }
-//   }
-// }
-
-
-// const multiplier = (numberToMultiplyBy) => {
-//   return (numberToMultiply) => {
-//     return numberToMultiplyBy * numberToMultiply;
-//   }
-// }
-
-// if (amount === 0) {
-//   return amount;
-// } else {
-//   const coinTotal = Math.floor(amount / coinValues[counter]);
-//   const amountRemainder = amount - quartersTotal * coinValues[counter];
-//   console.log(coinCounter + " " + coinNames[counter]);
-//   counter += 1;
-//   return coinCounter(amountRemainder);
-
-
-// }
-
-
-
-
-// ///trying it again from scratch
 
 
