@@ -39,7 +39,11 @@ describe("coinCounter", () => {
   });
 
   test("should identify a mixture of quarters, dimes, nickels, and pennies", () => {
-    expect(coinCounter(0.99, coinDict)).toEqual({ "quarters": 3, "dimes": 2, "pennies": 4 })
+    expect(coinCounter(0.99, coinDict)).toEqual({ "quarters": 3, "dimes": 2, "pennies": 4 });
+  })
+
+  test("should identify the correct amount for a value over a dollar", () => {
+    expect(coinCounter(1.99, coinDict)).toEqual({ "quarters": 7, "dimes": 2, "pennies": 4 });
   })
 
 });
